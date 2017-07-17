@@ -13,30 +13,21 @@ public class readSpec {
 	}
 	public static void readspec(String key) throws IOException
 	{
-		
-		FileReader readFile=new FileReader("src/main/java/passparameters/specFile/data.spec");
-		
-		String line="";
-		int c=0;
-		while((char)(c= readFile.read())!='#')
+		BufferedReader br=new BufferedReader(new FileReader("src/main/java/passparameters/specFile/data.spec"));
+		String line=" ";
+		while((line=br.readLine())!=null)
 		{
-			//System.out.print((char)c);
-			
-		}
-		BufferedReader readbuffer=new BufferedReader(readFile);
-		line=readbuffer.readLine();		
-
-		while((line=readbuffer.readLine())!=null)
-		{
-			String [] part=line.split(" ");
-			if((char)(c= readFile.read())=='#')
+			if(line.contains("username"))
 			{
-				break;
+			System.out.println(line);
+			String [] parts=line.split(" +");
+			for(int i=0;i<parts.length;i++)
+			{
+				System.out.println(i+" "+parts[i]);
 			}
-			System.out.println(part[0]);
+			}
 		}
 		
-
 	}
 	
 	
